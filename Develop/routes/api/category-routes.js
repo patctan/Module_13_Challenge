@@ -12,6 +12,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+  Category.findOne({where: {id: req.params.id}})
+  .then(category=> {
+    res.json(categoryData.catch(err => console.log(err)))
+  });
   // find one category by its `id` value
   // be sure to include its associated Products
 });
